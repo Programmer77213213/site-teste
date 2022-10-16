@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+          list-style:none;
+        }
+
+        body {
+          background-image:var(--bg--color-body); 
+        }
+        :root {
+           --bg-color-linear:linear-gradient(to right, rgb(0, 0, 0), rgb(7, 0, 38));;
+           --bg--color-body:linear-gradient(to right, rgb(1, 0, 44), rgb(3, 12, 51));;
+           --bg--color-clear:linear-gradient(to left, rgb(0, 85, 255), rgb(24, 0, 145));;;
+        }
+
+        ul#list-001 li {
+        display:inline-block;    
+        border:2px solid black; 
+        background-color:white; 
+        width:277px;
+        margin-top:17px;
+        padding:7px 7px 7px 7px;
+        text-decoration:underline;
+        border-radius:7px;
+        }
+
+        main#window-main {
+         border:3px solid black;
+         height:277px;
+         margin-left:377px;    
+         margin-right:327px;
+         margin-top:77px;   
+         background-color:rgb(168, 168, 255);
+         border-radius:7px;      
+        }  
+
+        button#dark:hover {
+           background-color:gray;
+           transform:scale(1.3);          
+           transition:0.3s;  
+           transition-delay:0.1s; 
+           transition-duration:0.2s;    
+           transition-timing-function:ease-in-out;
+        }
+
+        button#clear:hover   {
+           background-color:gray;
+           transform:scale(1.3);          
+           transition:0.3s;  
+           transition-delay:0.1s; 
+           transition-duration:0.2s;    
+           transition-timing-function:ease-in-out; 
+        }
+        
+        #button-tema-01:hover {
+           background-color:gray;
+           transform:scale(1.3);          
+           transition:0.3s;  
+           transition-delay:0.1s; 
+           transition-duration:0.2s;    
+           transition-timing-function:ease-in-out;    
+        }
+    </style>
+    <title>Cadastro</title>
+</head>
+<body id="body-config-01"> 
+    <button id="button-tema-01">
+        Temas       
+            <button id="dark" onclick="temaDark()">
+              Tema Escuro
+            </button>
+            <button id="clear" onclick="temaClear()">
+              Tema Claro      
+            </button>    
+    </button>
+    <main id="window-main">   
+         <ul id="list-001">
+            <li id="msg1">
+                <p id="msg">
+                  Nome:
+                </p>              
+            </li>            
+            <li>
+               <p id="msg2">
+                 Idade:  
+               </p>              
+            </li>           
+            <li>
+                <p id="msg3">
+                Gmail:
+                </p>             
+            </li>           
+         </ul>     
+    </main> 
+    <button onclick="letsGo()">
+        Começar
+    </button>
+    <button onclick="reset()">
+        Resetar
+    </button>
+    <script>
+        function letsGo(){
+            var name = window.prompt(`Digite seu Nome Completo: `);
+           //var idade = prompt(`Digite sua idade: `);
+        var datas = window.Number(prompt(`Digite somente o ano em que você nasceu: `));
+       var idade = 2022 - datas;
+        var quest = window.confirm(`Sr-a ${name}, Você deseja se cadastrar no site?`);   
+        if(quest == true){
+            var email = window.prompt(`Digite seu Gmail?: `);       
+            var senha = Number(prompt(`Digite sua Senha:`));
+            var senhaVerified = Number(prompt(`Confirme a senha: `));
+            if(senhaVerified == senha){ 
+                var finalizar = window.confirm(`Deseja Finalizar o cadastro?`);
+                if(finalizar == true){
+                var d1 = window.document.getElementById('msg');
+                 d1.innerText = `Nome:${name}`;    
+                 d1.style.background = 'rgb(168, 168, 255)'
+                 d1.style.transition = '0,3s'
+                 d1.style.color = `black`
+                var a1 = window.document.getElementById('msg2');
+                a1.innerText = `Idade: ${idade} Anos`;   
+                a1.style.background = `rgb(168, 168, 255)`            
+                var a1 = window.document.getElementById('msg3');
+                a1.innerText = `Gmail: ${email}`;   
+                a1.style.background = `rgb(168, 168, 255)`  
+                }
+                else{
+                    window.alert(`Ok, o cadastro foi cancelado...`);   
+                }
+            }
+            else{
+                window.alert(`Senha incorreta!`);
+            }
+        } 
+        else{
+            window.alert(`Ok, o cadastro foi cancelado...`);
+        }     
+        }
+        function reset(){
+            var d1 = window.document.getElementById('msg');
+                 d1.innerText = `Nome:`;    
+                 d1.style.background = 'transparent'
+                 d1.style.transition = '0,3s'
+                var a1 = window.document.getelemnById('age-001');
+                a1.innerText = `Idade`;     
+        }
+        function temaDark() {
+            var z1 = window.document.getElementById('body-config-01');                 
+            z1.style.backgroundImage = 'var(--bg-color-linear)';  
+                 var border = window.document.getElementById('window-main');
+                 border.style.border = '3px solid yellow';     
+                 border.style.background = 'rgb(21, 21, 21)';          
+                 var back001 = window.document.getElementById('msg1');                   
+                 back001.style.background = 'rgb(21, 21, 21)';  
+                 var back002 = window.document.getElementById('msg');                   
+                 back002.style.color = 'white'; 
+                 var back003 = window.document.getElementById('msg1');                   
+                 back003.style.border = '3px solid yellow';  
+                 back003.style.textdecoration = 'underline'     
+        }        
+        function temaClear() {
+            var z1 = window.document.getElementById('body-config-01');                 
+            z1.style.backgroundImage = 'var( --bg--color-clear)';
+            var border = window.document.getElementById('window-main');
+                 border.style.border = '3px solid yellow';     
+                 border.style.background = 'rgb(21, 21, 21)'
+                 border.style.color = 'black'
+                 var back002 = window.document.getElementById('msg');                   
+                 back002.style.textDecoration = 'black'; 
+        }
+    </script>       
+</body>
+</html>
